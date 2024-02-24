@@ -1,1 +1,1 @@
-# tsukiyama-seminar--assignment
+# tsukiyama-seminar-assignment
