@@ -13,7 +13,15 @@ age2 <- age
 age2[age <= 4] <- 0
 age2[age >= 5] <- 1
 by(cabsup2, age2, mean, na.rm = TRUE)
-#分散が等しいと仮定できるかどうか
+#分散が等しいと仮定できるかどうか(等分散性のF検定)
 var.test(cabsup2 ~ age2)
 #分散が等しくないと仮定する場合
 t.test(cabsup2 ~ age2, var.equal = FALSE)
+
+#2.3割合に関する推定
+cabsup3 <- cabsup
+cabsup3[cabsup == 0 | cabsup == 9] <-NA
+cabsup3[cabsup == 1 | cabsup == 2] <- 1
+cabsup3[cabsup >= 3 & cabsup <= 5] <- 0
+mean(cabsup3, na.rm = TRUE)
+prop.test
