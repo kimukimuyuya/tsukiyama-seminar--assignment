@@ -26,3 +26,13 @@ cabsup3[cabsup >= 3 & cabsup <= 5] <- 0
 mean(cabsup3, na.rm = TRUE)
 prop.test(c(1026), c(1907))
 prop.test(c(269, 757), c(565, 1342))
+
+#2.5決定的選挙の検証
+election <- read.csv("turnout.csv")
+attach(election)
+var.test(turnout ~ post1896)
+#F検定の結果、p値が0.05よりも大きいので、等分散性が仮定できる
+t.test(turnout ~ post1896, var.equal = TRUE)
+
+
+
