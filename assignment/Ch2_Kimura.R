@@ -24,4 +24,5 @@ cabsup3[cabsup == 0 | cabsup == 9] <-NA
 cabsup3[cabsup == 1 | cabsup == 2] <- 1
 cabsup3[cabsup >= 3 & cabsup <= 5] <- 0
 mean(cabsup3, na.rm = TRUE)
-prop.test
+prop.test(c(1026), c(1907))
+prop.test(c(269, 757), c(565, 1342))
