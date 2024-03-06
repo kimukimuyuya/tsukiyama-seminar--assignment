@@ -1,0 +1,7 @@
+fair <- read.table("presnew.txt", header = TRUE)
+attach(fair)
+result_fair <- lm(VOTESHR ~ PARTY + PRES + DUR + WAR + GROWTH + INFL + GOODNEWS)
+summary(result_fair)
+data2008 <- data.frame(PARTY = c(-1), PRES = c(0), DUR = c(1), WAR = c(0), GROWTH = c(-2.260), INFL = c(3.052), GOODNEWS = c(1))
+predict(result_fair, data2008, interval = "prediction", level = 0.95)
+predict(result_fair, data2008, interval = "prediction", level = 0.90)
