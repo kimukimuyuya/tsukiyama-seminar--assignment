@@ -5,10 +5,15 @@ NJ[location == 'PA'] <- 0
 NJ[location != 'PA'] <- 1
 # 各店舗の賃金
 wageChange <- wageAfter - wageBefore
+by(wageChange, NJ, mean, na.rm = TRUE)
+
 # 各店舗の常勤労働者数とパートタイム労働者数の合計
 staffChange <- (fullAfter + partAfter) - (fullBefore + partBefore)
+by(staffChange, NJ, mean, na.rm = TRUE)
+
 # 各店舗の常勤労働者割合
 fullPropChange <- (fullAfter / (fullAfter + partAfter)) - (fullBefore / (fullBefore + partBefore))
+by(fullPropChange, NJ, mean, na.rm = TRUE)
 
 # wageChangeの二つの平均値の差のt検定
 var.test(wageChange ~ NJ)
